@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Custom Name Bracelet 18k Gold Plated",
+    "price": 10.99,
+    "imgUrl": "/Images/cara1.png"
+  },
+  {
+    "id": 2,
+    "name": "Custom Name Bracelet 18k Gold Plated",
+    "price": 14.99,
+    "imgUrl": "/Images/cara2.png"
+  },
+  {
+    "id": 3,
+    "name": "Custom Name Bracelet 18k Gold Plated",
+    "price": 4.99,
+    "imgUrl": "/Images/cara3.png"
+  }
+]
