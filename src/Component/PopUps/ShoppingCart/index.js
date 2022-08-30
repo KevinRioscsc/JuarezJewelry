@@ -7,10 +7,14 @@ import {
   Btn,
   Flex,
   Spacing,
+  Total,
+  Sub,
+  TotalPrice,
 } from "./Cart";
 import { BiExitFullscreen } from "react-icons/bi";
 import { useCart } from "../../../Context/CartProvider";
 import CartItems from "../../CartItems";
+import data from "../../../Data/caraData.json";
 
 const Cart = ({ toggle, setToggle }) => {
   const { cartItem, cartQuantity } = useCart();
@@ -29,9 +33,22 @@ const Cart = ({ toggle, setToggle }) => {
           ) : (
             <Description>No Items in Cart</Description>
           )}
+          {cartQuantity !== 0 ? (
+            <Total>
+              <Sub>Your SubTotal: </Sub>
+              <TotalPrice>
+                {cartItem.reduce((total, itemCart) => {
+                  const item = data.find((i) => i.id === itemCart.id);
+                  return total + (item?.price || 0) * itemCart.quantity;
+                }, 0)}
+              </TotalPrice>
+            </Total>
+          ) : null}
         </Spacing>
         <Flex>
-          <Btn disabled>View Bag & Check Out</Btn>
+          <Btn disabled={cartQuantity !== 0 ? false : true}>
+            View Bag & Check Out
+          </Btn>
         </Flex>
       </SideBar>
     </>

@@ -6,11 +6,18 @@ import {
   Logo,
   Links,
   AccountLinks,
-  Link,
+  LinkLi,
   Tag,
   IMG,
   Cart,
   Quantity,
+  Dropdown,
+  Title,
+  Flex,
+  Wrapper,
+  Arrow,
+  Div,
+  Wrap,
 } from "./NavBar";
 import img from "../../../Images/logo Main 2.png";
 import img2 from "../../../Images/logoWhite.png";
@@ -18,6 +25,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { VscAccount } from "react-icons/vsc";
 import { AiOutlineShopping } from "react-icons/ai";
 import { useCart } from "../../../Context/CartProvider";
+import { Link } from "react-router-dom";
 
 const NavBar = ({ pressBtn }) => {
   const [wePassed, setPassed] = useState(false);
@@ -38,22 +46,53 @@ const NavBar = ({ pressBtn }) => {
             <IMG src={wePassed ? img2 : img} alt="" height={45} />
           </Logo>
           <Links>
-            <Link>
-              <Tag>Best Sellers</Tag>
-              <IoIosArrowDown />
-            </Link>
-            <Link>
-              <Tag>Jewelry</Tag>
-              <IoIosArrowDown />
-            </Link>
-            <Link>
-              <Tag>Sale</Tag>
-              <IoIosArrowDown />
-            </Link>
-            <Link>
-              <Tag>Custom</Tag>
-              <IoIosArrowDown />
-            </Link>
+            <LinkLi>
+              <Tag>BEST SELLERS</Tag>
+            </LinkLi>
+            <LinkLi>
+              <Wrapper>
+                <Arrow>
+                  <Tag>SHOP</Tag>
+                  <IoIosArrowDown />
+                </Arrow>
+                <Dropdown className="drop">
+                  <Flex>
+                    <Title>Category</Title>
+                    <Div>
+                      <Wrap>
+                        <Link to={"/Cata"}>Necklaces</Link>
+                      </Wrap>
+                    </Div>
+                    <Div>
+                      <Wrap>
+                        <Link to={"/Cata"}>Rings</Link>
+                      </Wrap>
+                    </Div>
+                    <Div>
+                      <Wrap>
+                        <Link to={"/Cata"}>Bracelets</Link>
+                      </Wrap>
+                    </Div>
+                    <Div>
+                      <Wrap>
+                        <Link to={"/Cata"}>Charms</Link>
+                      </Wrap>
+                    </Div>
+                    <Div>
+                      <Wrap>
+                        <Link to={"/Cata"}>Lifestyle</Link>
+                      </Wrap>
+                    </Div>
+                  </Flex>
+                </Dropdown>
+              </Wrapper>
+            </LinkLi>
+            <LinkLi>
+              <Tag>SALE</Tag>
+            </LinkLi>
+            <LinkLi>
+              <Tag>CUSTOM</Tag>
+            </LinkLi>
           </Links>
           <AccountLinks>
             <VscAccount size={30} />

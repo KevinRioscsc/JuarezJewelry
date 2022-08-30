@@ -57,3 +57,10 @@ export const Flex = styled.div`
 export const Spacing = styled.div`
   margin-top: 50px;
 `;
+export const Total = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-family: ubuntu;
+`;
+export const Sub = styled.h4``;
+export const TotalPrice = styled.h4``;
