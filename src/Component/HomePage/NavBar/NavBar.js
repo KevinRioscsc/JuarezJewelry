@@ -8,6 +8,7 @@ export const NavContainer = styled.div`
   color: ${(props) => (props.passed ? "white" : "black")};
   z-index: 56;
   top: 0;
+  padding: 0 100px;
   transition: all 0.2s ease-in-out;
 `;
 export const NavMargin = styled.div`

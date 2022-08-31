@@ -60,27 +60,27 @@ const NavBar = ({ pressBtn }) => {
                     <Title>Category</Title>
                     <Div>
                       <Wrap>
-                        <Link to={"/Cata"}>Necklaces</Link>
+                        <Link to={`/Categories/Necklaces`}>Necklaces</Link>
                       </Wrap>
                     </Div>
                     <Div>
                       <Wrap>
-                        <Link to={"/Cata"}>Rings</Link>
+                        <Link to={`/Categories/Rings`}>Rings</Link>
                       </Wrap>
                     </Div>
                     <Div>
                       <Wrap>
-                        <Link to={"/Cata"}>Bracelets</Link>
+                        <Link to={`/Categories/Bracelets`}>Bracelets</Link>
                       </Wrap>
                     </Div>
                     <Div>
                       <Wrap>
-                        <Link to={"/Cata"}>Charms</Link>
+                        <Link to={`/Categories/Charms`}>Charms</Link>
                       </Wrap>
                     </Div>
                     <Div>
                       <Wrap>
-                        <Link to={"/Cata"}>Lifestyle</Link>
+                        <Link to={`/Categories/Lifestyle`}>Lifestyle</Link>
                       </Wrap>
                     </Div>
                   </Flex>
