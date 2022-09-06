@@ -1,27 +1,19 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Heading from "../Component/ShopCategory/Heading";
-import data from '../Data/Jewelry.json'
+import { jewelry } from "../Data/Jewelry";
+import { Type } from "../Component/TypeCarousel";
 
 const Categories = () => {
-  const param = useParams()
-  const Cata = data.find(item => item.name === param.id)
-  const tags = JSON.parse(Cata.types)
+  const param = useParams();
+  const Cata = jewelry.find((item) => item.name === param.id);
+  const tags = Cata.types;
   return (
-  <>
-    <Heading id = {param.id}/>
-    {
-      tags.map(item => {
-        return (
-          <div>
-            <h1>{item}</h1>
-          </div>
-        )
-      })
-    }
-    
-  </>
-  )
+    <>
+      <Heading id={param.id} />
+      <Type types={tags} />
+    </>
+  );
 };
 
 export default Categories;
