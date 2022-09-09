@@ -35,12 +35,22 @@ export const Left = styled.div`
   transform: translateY(-50%);
   color: black;
   z-index: 99;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 export const Right = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 export const MainWrapper = styled.div`
   position: relative;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Wrapper,
   Carasoul,
@@ -10,9 +10,46 @@ import {
   MainWrapper,
 } from "./Type";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { right } from "./algorithm";
+import { right, left } from "./algorithm";
+import "./index.css";
 
 export const Type = ({ types }) => {
+  const [index, setIndex] = useState(0);
+  const [amount, setAmount] = useState(0);
+  const [currTransl, setCurrent] = useState([]);
+  const [translationComplete, setTrans] = useState(true);
+
+  const transitionCompleted = () => {
+    setTrans(true);
+  };
+
+  useEffect(() => {
+    document.addEventListener("DOMContentLoaded", () => {
+      setAmount(document.getElementsByTagName("img").length);
+      let arr = [];
+      for (let i = 0; i < amount; i++) {
+        arr.push(-200);
+        document
+          .getElementsByClassName("img")
+          [i].addEventListener("transitionend", transitionCompleted, true);
+        document
+          .getElementsByClassName("img")
+          [i].addEventListener(
+            "webkitTransitionEnd",
+            transitionCompleted,
+            true
+          );
+        document
+          .getElementsByClassName("img")
+          [i].addEventListener("oTransitionEnd", transitionCompleted, true);
+        document
+          .getElementsByClassName("img")
+          [i].addEventListener("MSTransitionEnd", transitionCompleted, true);
+      }
+      setCurrent(arr);
+      console.log("Dom fully loaded and parsed");
+    });
+  }, []);
   return (
     <>
       <MainWrapper>
@@ -29,10 +66,34 @@ export const Type = ({ types }) => {
             </Flex>
           </Carasoul>
         </Wrapper>
-        <Left onClick={right}>
+        <Left
+          onClick={() =>
+            left(
+              translationComplete,
+              setTrans,
+              index,
+              setIndex,
+              currTransl,
+              setCurrent,
+              amount
+            )
+          }
+        >
           <MdKeyboardArrowLeft color="black" size={40} />
         </Left>
-        <Right>
+        <Right
+          onClick={() =>
+            right(
+              translationComplete,
+              setTrans,
+              index,
+              setIndex,
+              currTransl,
+              setCurrent,
+              amount
+            )
+          }
+        >
           <MdKeyboardArrowRight size={40} />
         </Right>
       </MainWrapper>
