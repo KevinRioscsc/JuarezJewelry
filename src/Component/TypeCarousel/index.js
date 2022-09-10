@@ -74,8 +74,7 @@ export const Type = ({ types }) => {
               index,
               setIndex,
               currTransl,
-              setCurrent,
-              amount
+              setCurrent
             )
           }
         >
